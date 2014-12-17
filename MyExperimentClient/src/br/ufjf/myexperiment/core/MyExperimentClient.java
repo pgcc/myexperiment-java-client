@@ -24,7 +24,6 @@
 package br.ufjf.myexperiment.core;
 
 import br.ufjf.myexperiment.exception.MyExperimentException;
-import com.google.gson.Gson;
 import java.net.HttpURLConnection;
 
 /**
@@ -36,7 +35,7 @@ public class MyExperimentClient extends MyExperimentBaseClient implements MyExpe
     @Override
     public void search(String query) throws MyExperimentException {
         String url = "/search?query=" + query;
-        HttpURLConnection response = request(url, "GET", 200, "application/json");
+        HttpURLConnection response = request(url, "GET", 200, "application/xml");
         String content = parseResponse(response);
         System.out.println(content);
     }
