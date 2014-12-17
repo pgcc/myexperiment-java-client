@@ -1,3 +1,6 @@
+
+import br.ufjf.myexperiment.core.MyExperimentClient;
+
 /*
  * The MIT License
  *
@@ -21,24 +24,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package br.ufjf.myexperiment.core;
-
-import br.ufjf.myexperiment.exception.MyExperimentException;
-import com.google.gson.Gson;
-import java.net.HttpURLConnection;
-
 /**
  *
  * @author vitorfs
  */
-public class MyExperimentClient extends MyExperimentBaseClient implements MyExperimentServices {
-
-    @Override
-    public void search(String query) throws MyExperimentException {
-        String url = "/search?query=" + query;
-        HttpURLConnection response = request(url, "GET", 200, "application/json");
-        String content = parseResponse(response);
-        System.out.println(content);
+public class Samples {
+    
+    public static void main(String[] args) {
+        MyExperimentClient client = new MyExperimentClient();
+        client.setBaseUri("http://www.myexperiment.org/");
+        
+        try {
+            client.search("protein");
+        } catch (Exception e) {
+        }
     }
     
 }
