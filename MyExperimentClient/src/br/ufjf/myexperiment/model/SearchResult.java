@@ -24,28 +24,75 @@
 package br.ufjf.myexperiment.model;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlValue;
 
 /**
  *
  * @author vitorfs
  */
-public class Workflow extends SearchResult {
-    
-    private Integer version;
-    
+public abstract class SearchResult {
+    private Integer id;
+    private String resource;
+    private String uri;
+    private String description;
+
     /**
-     * @return the version
+     * @return the id
      */
-    public Integer getVersion() {
-        return version;
+    public Integer getId() {
+        return id;
     }
 
     /**
-     * @param version the version to set
+     * @param id the id to set
      */
     @XmlAttribute
-    public void setVersion(Integer version) {
-        this.version = version;
+    public void setId(Integer id) {
+        this.id = id;
     }
-    
+
+    /**
+     * @return the resource
+     */
+    public String getResource() {
+        return resource;
+    }
+
+    /**
+     * @param resource the resource to set
+     */
+    @XmlAttribute
+    public void setResource(String resource) {
+        this.resource = resource;
+    }
+
+    /**
+     * @return the uri
+     */
+    public String getUri() {
+        return uri;
+    }
+
+    /**
+     * @param uri the uri to set
+     */
+    @XmlAttribute
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    @XmlValue
+    public void setDescription(String description) {
+        this.description = description;
+    }    
 }

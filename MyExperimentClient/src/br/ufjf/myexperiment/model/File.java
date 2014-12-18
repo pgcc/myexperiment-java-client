@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlAttribute;
  *
  * @author vitorfs
  */
-public class Workflow extends SearchResult {
+public class File extends SearchResult {
     
     private Integer version;
     

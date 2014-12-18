@@ -1,5 +1,6 @@
 
 import br.ufjf.myexperiment.core.MyExperimentClient;
+import br.ufjf.myexperiment.model.File;
 import br.ufjf.myexperiment.model.Search;
 import br.ufjf.myexperiment.model.Workflow;
 
@@ -37,9 +38,12 @@ public class Samples {
         client.setBaseUri("http://www.myexperiment.org/");
         
         try {
-            Search search = client.search("protein");
+            Search search = client.search("fasta");
             for (Workflow workflow : search.getWorkflow()) {
                 System.out.println(workflow);
+            }
+            for (File file : search.getFile()) {
+                System.out.println(file);
             }
         } catch (Exception e) {
         }

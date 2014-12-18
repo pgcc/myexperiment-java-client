@@ -23,29 +23,10 @@
  */
 package br.ufjf.myexperiment.model;
 
-import javax.xml.bind.annotation.XmlAttribute;
-
 /**
  *
  * @author vitorfs
  */
-public class Workflow extends SearchResult {
-    
-    private Integer version;
-    
-    /**
-     * @return the version
-     */
-    public Integer getVersion() {
-        return version;
-    }
-
-    /**
-     * @param version the version to set
-     */
-    @XmlAttribute
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
+public class User extends SearchResult {
     
 }

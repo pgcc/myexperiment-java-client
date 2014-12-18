@@ -37,7 +37,7 @@ public class MyExperimentClient extends MyExperimentBaseClient implements MyExpe
 
     @Override
     public Search search(String query) throws MyExperimentException {
-        String url = "/search.xml?query=" + query + "&type=workflow";
+        String url = "/search.xml?query=" + query;
         HttpURLConnection response = request(url, "GET", 200);
         Search search = null;
 	 try {
