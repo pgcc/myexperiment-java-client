@@ -24,6 +24,7 @@
 package br.ufjf.myexperiment.core;
 
 import br.ufjf.myexperiment.exception.MyExperimentException;
+import br.ufjf.myexperiment.model.Search;
 
 /**
  *
@@ -31,6 +32,6 @@ import br.ufjf.myexperiment.exception.MyExperimentException;
  */
 public interface MyExperimentServices {
     
-    public void search(String query) throws MyExperimentException;
+    public Search search(String query) throws MyExperimentException;
     
 }

@@ -1,8 +1,3 @@
-
-import br.ufjf.myexperiment.core.MyExperimentClient;
-import br.ufjf.myexperiment.model.Search;
-import br.ufjf.myexperiment.model.Workflow;
-
 /*
  * The MIT License
  *
@@ -26,23 +21,68 @@ import br.ufjf.myexperiment.model.Workflow;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package br.ufjf.myexperiment.model;
+
+import java.util.List;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlValue;
+
 /**
  *
  * @author vitorfs
  */
-public class Samples {
-    
-    public static void main(String[] args) {
-        MyExperimentClient client = new MyExperimentClient();
-        client.setBaseUri("http://www.myexperiment.org/");
-        
-        try {
-            Search search = client.search("protein");
-            for (Workflow workflow : search.getWorkflow()) {
-                System.out.println(workflow);
-            }
-        } catch (Exception e) {
-        }
+@XmlRootElement
+public class Search {
+    private String query;
+    private String type;
+    private List<Workflow> workflow;
+
+    /**
+     * @return the workflow
+     */
+    public List<Workflow> getWorkflow() {
+        return workflow;
+    }
+
+    /**
+     * @param workflow the workflow to set
+     */
+    @XmlElement
+    public void setWorkflow(List<Workflow> workflow) {
+        this.workflow = workflow;
+    }
+
+    /**
+     * @return the query
+     */
+    public String getQuery() {
+        return query;
+    }
+
+    /**
+     * @param query the query to set
+     */
+    @XmlAttribute
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    /**
+     * @return the type
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    @XmlAttribute
+    public void setType(String type) {
+        this.type = type;
     }
     
+
 }

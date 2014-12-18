@@ -24,7 +24,10 @@
 package br.ufjf.myexperiment.core;
 
 import br.ufjf.myexperiment.exception.MyExperimentException;
+import br.ufjf.myexperiment.model.Search;
 import java.net.HttpURLConnection;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
 
 /**
  *
@@ -33,11 +36,18 @@ import java.net.HttpURLConnection;
 public class MyExperimentClient extends MyExperimentBaseClient implements MyExperimentServices {
 
     @Override
-    public void search(String query) throws MyExperimentException {
-        String url = "/search?query=" + query;
-        HttpURLConnection response = request(url, "GET", 200, "application/xml");
-        String content = parseResponse(response);
-        System.out.println(content);
+    public Search search(String query) throws MyExperimentException {
+        String url = "/search.xml?query=" + query + "&type=workflow";
+        HttpURLConnection response = request(url, "GET", 200);
+        Search search = null;
+	 try {
+		JAXBContext jaxbContext = JAXBContext.newInstance(Search.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		search = (Search) jaxbUnmarshaller.unmarshal(response.getInputStream());
+	  } catch (Exception e) {
+		e.printStackTrace();
+	  }
+         return search;
     }
     
 }
