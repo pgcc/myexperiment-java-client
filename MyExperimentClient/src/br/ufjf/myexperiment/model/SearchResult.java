@@ -23,76 +23,117 @@
  */
 package br.ufjf.myexperiment.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
 /**
  *
  * @author vitorfs
+ * @author lesimoes
  */
-public abstract class SearchResult {
-    private Integer id;
-    private String resource;
-    private String uri;
-    private String description;
 
-    /**
-     * @return the id
-     */
+@XmlRootElement(name = "SearchResult")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "SearchResult")
+
+public abstract class SearchResult {
+    
+    @XmlElement(name = "id", required = true)
+    private Integer id;
+    @XmlAttribute(name = "resource")
+    private String resource;
+    @XmlAttribute(name = "uri")
+    private String uri;
+    @XmlElement(name = "title", required = true)
+    private String description;
+    @XmlElement(name = "created-at", required = true)
+    private String createdAt;
+    @XmlElement(name = "updated-at", required = true)
+    private String updatedAt;
+    @XmlElement(name = "statistics", required = true)
+    private Statistics total;
+    
+ 
+    
     public Integer getId() {
         return id;
     }
+  
 
-    /**
-     * @param id the id to set
-     */
-    @XmlAttribute
+    
     public void setId(Integer id) {
         this.id = id;
     }
 
-    /**
-     * @return the resource
-     */
+    
+    
     public String getResource() {
         return resource;
     }
 
-    /**
-     * @param resource the resource to set
-     */
-    @XmlAttribute
+ 
     public void setResource(String resource) {
         this.resource = resource;
     }
 
-    /**
-     * @return the uri
-     */
+
     public String getUri() {
         return uri;
     }
 
-    /**
-     * @param uri the uri to set
-     */
-    @XmlAttribute
+
+
     public void setUri(String uri) {
         this.uri = uri;
     }
+    
 
-    /**
-     * @return the description
-     */
     public String getDescription() {
         return description;
     }
 
-    /**
-     * @param description the description to set
-     */
-    @XmlValue
+
     public void setDescription(String description) {
         this.description = description;
     }    
+    
+    public void setCreatedAt(String createdAt){
+        this.createdAt = createdAt;
+    }
+    
+    public String getCreatedAt(){
+        return createdAt;
+    }
+  
+    public void setUpdatedAt(String updatedAt){
+        this.updatedAt = updatedAt;
+    }
+    
+    public String getUpdatedAt(){
+        return updatedAt;
+    }
+
+    /**
+     * @return the total
+     */
+    public int getTotal() {
+        return total.getTotal();
+    }
+
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(int total) {
+        this.total.setTotal(total); 
+    }
+
+
+    
+  
+    
 }

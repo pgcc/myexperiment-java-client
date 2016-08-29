@@ -34,10 +34,11 @@ import javax.xml.bind.Unmarshaller;
  * @author vitorfs
  */
 public class MyExperimentClient extends MyExperimentBaseClient implements MyExperimentServices {
-
+private final String queryTime = "&elements=title,created-at,updated-at,resource,id,uri,statistics";
+    
     @Override
     public Search search(String query) throws MyExperimentException {
-        String url = "/search.xml?query=" + query;
+        String url = "/search.xml?query=" + query + queryTime;
         HttpURLConnection response = request(url, "GET", 200);
         Search search = null;
 	 try {

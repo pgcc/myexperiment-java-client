@@ -38,12 +38,17 @@ public class Samples {
         client.setBaseUri("http://www.myexperiment.org/");
         
         try {
-            Search search = client.search("fasta");
+            Search search = client.search("Nuclear Protein Database Query Service");
+            System.out.printf("EITA" + search.getType());
             for (Workflow workflow : search.getWorkflow()) {
-                System.out.println(workflow);
+                System.out.println(workflow + " created-at " + workflow.getCreatedAt()
+                + " Version: " + workflow.getId() + " updated-at " + workflow.getUpdatedAt() 
+                + " Total " + workflow.getTotalS());
             }
             for (File file : search.getFile()) {
-                System.out.println(file);
+                System.out.println(file + " createad-at " + file.getCreatedAt() + " Version  " + 
+                        file.getVersion() +" updated-at: " + file.getUpdatedAt());
+                
             }
         } catch (Exception e) {
         }

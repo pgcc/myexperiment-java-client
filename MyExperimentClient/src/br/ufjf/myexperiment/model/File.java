@@ -31,19 +31,15 @@ import javax.xml.bind.annotation.XmlAttribute;
  */
 public class File extends SearchResult {
     
+    @XmlAttribute(name = "version")
     private Integer version;
     
-    /**
-     * @return the version
-     */
+
     public Integer getVersion() {
         return version;
     }
 
-    /**
-     * @param version the version to set
-     */
-    @XmlAttribute
+
     public void setVersion(Integer version) {
         this.version = version;
     }
