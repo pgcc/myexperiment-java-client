@@ -51,4 +51,18 @@ private final String queryTime = "&elements=title,created-at,updated-at,resource
          return search;
     }
     
+    public Search searchWithoutElements(String query) throws MyExperimentException {
+        String url = "/search.xml?query=" + query;
+        HttpURLConnection response = request(url, "GET", 200);
+        Search search = null;
+	 try {
+		JAXBContext jaxbContext = JAXBContext.newInstance(Search.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		search = (Search) jaxbUnmarshaller.unmarshal(response.getInputStream());
+	  } catch (Exception e) {
+		e.printStackTrace();
+	  }
+         return search;
+    }
+    
 }
