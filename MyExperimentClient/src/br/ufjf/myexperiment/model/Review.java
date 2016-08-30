@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2014 Pós-Graduação em Ciência da Computação UFJF.
+ * Copyright 2016 Pós-Graduação em Ciência da Computação UFJF.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,15 +23,16 @@
  */
 package br.ufjf.myexperiment.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 
 /**
  *
- * @author vitorfs
  * @author phillipe
  */
-public class User extends SearchResult {
-    
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Review {
     @XmlAttribute(name="resource")
     private String resource;
     
@@ -39,7 +40,7 @@ public class User extends SearchResult {
     private String uri;
     
     @XmlAttribute(name="id")
-    private Integer id;    
+    private Integer id;
 
     /**
      * @return the resource
@@ -82,5 +83,4 @@ public class User extends SearchResult {
     public void setId(Integer id) {
         this.id = id;
     }
-    
 }

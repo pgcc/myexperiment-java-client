@@ -26,7 +26,6 @@ package br.ufjf.myexperiment.model;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
-
 /**
  *
  * @author vitorfs
@@ -35,21 +34,28 @@ public class Workflow extends SearchResult {
     
     @XmlAttribute(name = "version")
     private Integer version;
-   
-    @XmlElement(name= "total", required = true)
+    @XmlElement(name = "total", required = true)
     private Integer total;
-
     private double rating;
     private double time;
-    private double ranking;
+    private double ranking;    
     
-
-    public Integer getVersion() {
+    public Workflow() {
+    
+    }
+    
+    /**
+     * @return the version
+     */
+    public Integer getVersionW() {
         return version;
     }
 
-
-    public void setVersion(Integer version) {
+    /**
+     * @param version the version to set
+     */
+    @XmlAttribute
+    public void setVersionW(Integer version) {
         this.version = version;
     }
 
@@ -67,32 +73,46 @@ public class Workflow extends SearchResult {
         this.total = total;
     }
 
+    /**
+     * @return the rating
+     */
     public double getRating() {
         return rating;
     }
 
+    /**
+     * @param rating the rating to set
+     */
     public void setRating(double rating) {
         this.rating = rating;
     }
 
+    /**
+     * @return the time
+     */
     public double getTime() {
         return time;
     }
 
+    /**
+     * @param time the time to set
+     */
     public void setTime(double time) {
         this.time = time;
     }
 
+    /**
+     * @return the ranking
+     */
     public double getRanking() {
         return ranking;
     }
 
+    /**
+     * @param ranking the ranking to set
+     */
     public void setRanking(double ranking) {
         this.ranking = ranking;
     }
-
-
-    
-    
     
 }

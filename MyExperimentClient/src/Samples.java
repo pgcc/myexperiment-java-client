@@ -43,11 +43,11 @@ public class Samples {
             for (Workflow workflow : search.getWorkflow()) {
                 System.out.println(workflow + " created-at " + workflow.getCreatedAt()
                 + " Version: " + workflow.getId() + " updated-at " + workflow.getUpdatedAt() 
-                + " Total " + workflow.getTotalS());
+                + " Total " + workflow.getTotalS() + " description " + workflow.getDescription());
             }
             for (File file : search.getFile()) {
                 System.out.println(file + " createad-at " + file.getCreatedAt() + " Version  " + 
-                        file.getVersion() +" updated-at: " + file.getUpdatedAt());
+                        file.getVersionF()+" updated-at: " + file.getUpdatedAt());
                 
             }
         } catch (Exception e) {

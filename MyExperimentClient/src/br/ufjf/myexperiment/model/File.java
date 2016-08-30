@@ -35,12 +35,19 @@ public class File extends SearchResult {
     private Integer version;
     
 
-    public Integer getVersion() {
+    /**
+     * @return the version
+     */
+    public Integer getVersionF() {
         return version;
     }
 
 
-    public void setVersion(Integer version) {
+    /**
+     * @param version the version to set
+     */
+    @XmlAttribute
+    public void setVersionF(Integer version) {
         this.version = version;
     }
     
