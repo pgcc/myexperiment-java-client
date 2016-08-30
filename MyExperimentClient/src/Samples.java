@@ -38,17 +38,20 @@ public class Samples {
         client.setBaseUri("http://www.myexperiment.org/");
         
         try {
-            Search search = client.search("Nuclear Protein Database Query Service");
-            System.out.printf("EITA" + search.getType());
+            Search search = client.search("fasta");
+            System.out.println("Workflow data:\n");            
             for (Workflow workflow : search.getWorkflow()) {
-                System.out.println(workflow + " created-at " + workflow.getCreatedAt()
-                + " Version: " + workflow.getId() + " updated-at " + workflow.getUpdatedAt() 
-                + " Total " + workflow.getTotalS() + " description " + workflow.getDescription());
+                System.out.println("Created-at " + workflow.getCreatedAt());
+                System.out.println("Version " + workflow.getVersionW());
+                System.out.println("Uptated-At " + workflow.getUpdatedAt());                
+                System.out.println("Description " + workflow.getDescription());                                
             }
+            
+            System.out.println("File data:\n");
             for (File file : search.getFile()) {
-                System.out.println(file + " createad-at " + file.getCreatedAt() + " Version  " + 
-                        file.getVersionF()+" updated-at: " + file.getUpdatedAt());
-                
+                System.out.println("Createad-at " + file.getCreatedAt());
+                System.out.println("Version " + file.getVersionF());
+                System.out.println("Updated-At " + file.getUpdatedAt());
             }
         } catch (Exception e) {
         }
